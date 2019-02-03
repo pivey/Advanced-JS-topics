@@ -74,3 +74,66 @@ var jane = Object.create(personProto, {
 
 
 
+//************* Primatives & Objects ******************
+
+
+// Primatives
+
+var a = 15; 
+var b = a; 
+
+a = 35; 
+console.log(b); 
+
+// The value of 'a' is copied to var b so when we log a after having changed it var b stays the same. 
+// this works because each of the variables holds a copy of the variable, not a reference. 
+
+// Objects and reference
+// objects only keep a reference of the data that they hold, not a copy of the data itself. 
+
+var john = {
+	name : 'john', 
+	age: 52,
+	job: 'carpenter',
+	
+
+}; 
+
+var paul = john; 
+
+john.age = 53; 
+
+console.log(john.age); 
+console.log(john.age); 
+
+// The change made to the john object is reflected in the paul object because both objects are only a reference to the data they hold, not a ocpy 
+// so paul and john are exactly the same object 
+
+// functions
+
+var age = 45
+
+var mary = {
+	name:'mary', 
+	city: 'lagos'
+}; 
+
+function city( a, b) {
+	a = 55; 
+	b.city = 'Ljubljana'; 
+
+}
+
+city(age, mary);
+
+console.log(age); 
+console.log(mary.city);
+
+// When we pass a primative into the function a copy is created, we can change 'a' as much as we wish but it will not affect the 
+// variable on the outside because it is a primative
+
+// we only pass the reference that points to the object into the function. Therefore when we cnange the object inside the function then it is reflected 
+// outide the function as well. 
+
+
+
