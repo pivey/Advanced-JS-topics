@@ -139,6 +139,8 @@ console.log(mary.city);
 
 var years = [1990, 1965, 1937, 2005, 1998];
 
+//can also be written as (fn, arr) which would be simpler to understand as long as that
+// same syntax is kept when writing the 'var ages function call'
 function arrayCalc(arr, fn) {
     var arrRes = [];
     for (var i = 0; i < arr.length; i++) {
@@ -147,29 +149,63 @@ function arrayCalc(arr, fn) {
     return arrRes;
 }
 
+// the (el) becomes negligible due to the 'arrRes.push(fn(arr[i]))' because we
+// pass the function as calculateAge and it then uses the array as the (el) and therefore works
 function calculateAge(el) {
     return 2016 - el;
 }
 
-function isFullAge(el) {
-    return el >= 18;
-}
+// function isFullAge(el) {
+//     return el >= 18;
+// }
 
-function maxHeartRate(el) {
-    if (el >= 18 && el <= 81) {
-        return Math.round(206.9 - (0.67 * el));
-    } else {
-        return -1;
-    }
-}
+// function maxHeartRate(el) {
+//     if (el >= 18 && el <= 81) {
+//         return Math.round(206.9 - (0.67 * el));
+//     } else {
+//         return -1;
+//     }
+// }
 
 
 var ages = arrayCalc(years, calculateAge);
-var fullAges = arrayCalc(ages, isFullAge);
-var rates = arrayCalc(ages, maxHeartRate);
+// var fullAges = arrayCalc(ages, isFullAge);
+// var rates = arrayCalc(ages, maxHeartRate);
 
 console.log(ages);
-console.log(rates);
+// console.log(rates);
 
+/********* Using functions as arguments ***********/
 
+// create an array. 
 
+var yearOfManu = [1955, 1986, 1945, 1975, 1931]; 
+
+// Create a generic function
+// This function returns an array that has been passed through a function
+
+function vintageArray (fn, arr) {
+	var vinCalc = []; 
+	for (var i =0; i<yearOfManu.length; i++) {
+		vinCalc.push(fn(arr[i])); 
+	}
+	return vinCalc; 
+} 
+
+//  the 'el' will take the form of the array that is passed into the 'vintageArray' function. 
+
+function calculateDate(el) {
+	return 2019 - el; 
+}
+
+// Create a variable so that we can save the new array that has been made
+
+var vinYears = vintageArray(calculateDate, yearOfManu);
+
+console.log(vinYears);
+
+function vintageTest (el) {
+	return el >= 45; 
+}
+
+console.log(vintageArray(vintageTest, vinYears)); 
