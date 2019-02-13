@@ -233,19 +233,52 @@ function movieQuestions (genre) {
 
 	return function (name) {
 			console.log(name + " do you like "+ genre +" movies because you want to be a comedian yourself?");
-		
+				
 
 	}
 }
 
 // store the output of the anonymous function in a variable 
 
-var movieAnswerHorror = movieQuestions("horror"); 
+// var movieAnswerHorror = movieQuestions("horror"); 
 
 // you can now call this 'variable' and use it like a function and add an input
 
-movieAnswerHorror("jeremy"); 
+// movieAnswerHorror("jeremy"); 
 
 // the anonymous function withing the main function can be called and a parameter passed to it. 
 
-movieQuestions ("horror") ("paul");
+// movieQuestions ("horror") ("paul");
+
+
+/************************* Closurees *****************************/
+
+function interviewQuestion(genre) {
+    return function(name) {
+        if (genre === "romance") {
+            console.log(name + " do you like " + genre + " movies because you feel alone?");
+        } else if (genre === "horror") {
+            console.log(name + " do you like " + genre + " movies because you want to hurt somebody?");
+        } else {
+            console.log(name + " do you like "+ genre +" movies because you want to be a comedian yourself?");
+        }
+    }
+}
+
+interviewQuestion("romance")("casey");
+
+
+
+function interviewQuestion(job) {
+    return function(name) {
+        if (job === 'designer') {
+            console.log(name + ', can you please explain what UX design is?');
+        } else if (job === 'teacher') {
+            console.log('What subject do you teach, ' + name + '?');
+        } else {
+            console.log('Hello ' + name + ', what do you do?');
+        }
+    }
+}
+
+interviewQuestion('teacher')('John');
