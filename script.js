@@ -155,24 +155,24 @@ function calculateAge(el) {
     return 2016 - el;
 }
 
-// function isFullAge(el) {
-//     return el >= 18;
-// }
+function isFullAge(el) {
+    return el >= 18;
+}
 
-// function maxHeartRate(el) {
-//     if (el >= 18 && el <= 81) {
-//         return Math.round(206.9 - (0.67 * el));
-//     } else {
-//         return -1;
-//     }
-// }
+function maxHeartRate(el) {
+    if (el >= 18 && el <= 81) {
+        return Math.round(206.9 - (0.67 * el));
+    } else {
+        return -1;
+    }
+}
 
 
 var ages = arrayCalc(years, calculateAge);
 // var fullAges = arrayCalc(ages, isFullAge);
-// var rates = arrayCalc(ages, maxHeartRate);
+var rates = arrayCalc(ages, maxHeartRate);
 
-console.log(ages);
+console.log(rates);
 // console.log(rates);
 
 /********* Using functions as arguments ***********/
@@ -209,3 +209,43 @@ function vintageTest (el) {
 }
 
 console.log(vintageArray(vintageTest, vinYears)); 
+
+
+// Using first class functions 
+
+
+function movieQuestions (genre) {
+
+	if (genre == "romance") {
+		return function (name) {
+			console.log(name + " do you like " + genre + " movies because you feel alone?");
+		} 
+	} 
+
+	else if (genre == "horror") {
+
+		return function (name) {
+			console.log(name + " do you like " + genre + " movies because you want to hurt somebody?");
+		} 
+	}
+
+		else (genre == "comedy") 
+
+	return function (name) {
+			console.log(name + " do you like "+ genre +" movies because you want to be a comedian yourself?");
+		
+
+	}
+}
+
+// store the output of the anonymous function in a variable 
+
+var movieAnswerHorror = movieQuestions("horror"); 
+
+// you can now call this 'variable' and use it like a function and add an input
+
+movieAnswerHorror("jeremy"); 
+
+// the anonymous function withing the main function can be called and a parameter passed to it. 
+
+movieQuestions ("horror") ("paul");
