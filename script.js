@@ -265,7 +265,7 @@ function interviewQuestion(genre) {
     }
 }
 
-interviewQuestion("romance")("casey");
+// interviewQuestion("romance")("casey");
 
 
 
@@ -282,3 +282,25 @@ function interviewQuestion(job) {
 }
 
 interviewQuestion('teacher')('John');
+
+		
+function addition() {
+
+	var a1 = 15;
+	function number(){
+
+		var b1 = 10; 
+		console.log(a1 + b1);
+	}
+
+	return number; 
+}
+
+
+var result = addition(); 
+
+console.log(addition);
+
+
+
+
